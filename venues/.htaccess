@@ -1,0 +1,61 @@
+# Turn on the rewrite engine
+Options +FollowSymlinks
+
+
+RewriteEngine on
+
+# Allow any files or directories that exist to be displayed directly
+RewriteCond ${REQUEST_URI} ^.+$
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|txt|pdf|xml)$ [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
+
+RewriteBase /venues/
+
+# RedirectMatch permanent ^/venue/((css|js)/.*)  /$1
+# Request routing
+# RewriteRule ^([a-zA-Z_-]*)$ 	venue.php?id=$1 [nc,qsa]
+# RewriteRule ^/venues/cafe/([0-9]*)$ 	/venues/venue.php?id=$1 [nc,qsa]
+RewriteRule ^venue/([0-9]+)/?$    venue.php?id=$1    [NC,L]    # Handle venue requests
+# RewriteRule ^venue/([^0-9]+)$ $1 [NC,L,R]				# [L,QSA,R=301]
+#RewriteRule ^venue/(\D+)$ $1 [NC,L,R]				# [L,QSA,R=301]
+#RewriteRule ^venue/index.php$ http://localhost/venues/index.php [NC,L,R]				# [L,QSA,R=301]
+RewriteRule ^profile/?$    profile.php    [NC,L]    # Handle profile requests
+RewriteRule ^profile/([0-9]+)/?$    profile.php?id=$1    [NC,L]    # Handle profile requests
+# RewriteRule ^venue/(css|js|img|font-awesome)/(.*)?$ /venues/$1/$2 [L,QSA,R=301]
+
+#RewriteRule ^search/?$    search.php    [NC,L]    # Handle search requests
+RewriteRule ^search/people/validate/?$    search_validation.php    [NC,L]    # Handle search requests
+RewriteRule ^search/people/?$    search_people.php    [NC,L]    # Handle search requests
+#RewriteRule ^search/people/(.)+=?$    search_people.php?people=$1    [NC,L]    # Handle search requests
+RewriteRule ^search/people/([a-z0-9A-Z_\-\+\=\/\~]+)?$    search_people.php?people=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^search/places/validate/?$    search_validation.php    [NC,L]    # Handle search requests
+RewriteRule ^search/places/?$    search_places.php    [NC,L]    # Handle search requests
+RewriteRule ^search/places/([a-z0-9A-Z_\-\+\=\/\~]+)?$    search_places.php?places=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^rating/user/?$    user_rating.php    [NC,L]    # Handle search requests
+RewriteRule ^rating/user/([a-z0-9A-Z_\-\+\=\/\~]+)?$    user_rating.php?user=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^rating/venue/?$    venue_rating.php    [NC,L]    # Handle search requests
+RewriteRule ^rating/venue/([a-z0-9A-Z_\-\+\=\/\~]+)?$    venue_rating.php?venue=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^checkin/user/?$    user_checkin.php    [NC,L]    # Handle search requests
+RewriteRule ^checkin/user/([a-z0-9A-Z_\-\+\=\/\~]+)?$    user_checkin.php?user=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^checkin/venue/?$    venue_checkin.php    [NC,L]    # Handle search requests
+RewriteRule ^checkin/venue/([a-z0-9A-Z_\-\+\=\/\~]+)?$    venue_checkin.php?venue=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^visit/user/?$    user_checkin.php?distinct=1    [NC,L]    # Handle search requests
+RewriteRule ^visit/user/([a-z0-9A-Z_\-\+\=\/\~]+)?$    user_checkin.php?user=$1&distinct=1    [NC,L]    # Handle search requests
+
+RewriteRule ^visit/venue/?$    venue_checkin.php&distinct=1    [NC,L]    # Handle search requests
+RewriteRule ^visit/venue/([a-z0-9A-Z_\-\+\=\/\~]+)?$    venue_checkin.php?venue=$1&distinct=1    [NC,L]    # Handle search requests
+
+RewriteRule ^favorite/user/?$    user_favorite.php    [NC,L]    # Handle search requests
+RewriteRule ^favorite/user/([a-z0-9A-Z_\-\+\=\/\~]+)?$    user_favorite.php?user=$1    [NC,L]    # Handle search requests
+
+RewriteRule ^favorite/venue/?$    venue_favorite.php    [NC,L]    # Handle search requests
+RewriteRule ^favorite/venue/([a-z0-9A-Z_\-\+\=\/\~]+)?$    venue_favorite.php?venue=$1    [NC,L]    # Handle search requests

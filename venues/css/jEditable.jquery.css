@@ -1,0 +1,23 @@
+.jeditable input {
+    color: #000;
+}
+
+.jeditable::-webkit-input-placeholder {
+   color: red;
+}
+
+.jeditable:-moz-placeholder { /* Firefox 18- */
+   color: red;  
+}
+
+.jeditable::-moz-placeholder {  /* Firefox 19+ */
+   color: red;  
+}
+
+.jeditable:-ms-input-placeholder {  
+   color: red;  
+}
+
+.jeditable {  
+	cursor: pointer; cursor: hand;
+}

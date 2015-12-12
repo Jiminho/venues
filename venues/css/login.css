@@ -1,0 +1,157 @@
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  float: right;
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid #fff;
+  border-radius: 3px;    
+  top: 10px;
+  right: 120px;
+}
+
+nav li {
+  float: left;          
+}
+
+nav #log-in {
+  border-right: 1px solid #ddd;
+  box-shadow: 1px 0 0 #fff;  
+}
+
+nav #log-in-trigger,
+nav #log-out-trigger,
+nav #signup-trigger {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff; 
+}
+
+nav #signup-trigger {
+  border-radius: 0 3px 3px 0;
+}
+
+nav #log-in-trigger {
+  border-radius: 3px 0 0 3px;
+}
+
+nav #log-out-trigger {
+  border-radius: 3px;
+}
+
+nav #log-in-trigger:hover,
+nav #signup-trigger:hover,
+nav #log-in .active,
+nav #signup .active {
+  background: #fff;
+}
+
+nav #log-in-content,
+nav #signup-content {
+  display: none;
+  position: absolute;
+  top: 24px;
+  right: 0;
+  z-index: 999;    
+  background: rgba(255, 255, 255, 0.25);
+  background-image: linear-gradient(top, #fff, #eee);  
+  padding: 15px;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+  border-radius: 3px 0 3px 3px;
+}
+
+nav li #log-in-content,
+nav li #signup-content {
+  right: 0;
+  width: 250px;  
+}
+
+/*--------------------*/
+
+.inputs input {
+  background: #d8d8d8;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  //box-shadow: 0 1px 1px #ccc inset;
+  color:#333;
+}
+
+.inputs input:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*--------------------*/
+
+#log-in .actions,
+#signup .actions {
+  margin: 10px 0 0 0;
+}
+
+#log-in #submit,
+#signup #submit {    
+  background-color: #8FD162;
+  background-image: linear-gradient(top, #e97171, #8FD162);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+  border: 1px solid #177E15;
+  float: left;
+  height: 30px;
+  padding: 0;
+  width: 100px;
+  cursor: pointer;
+  font: bold 14px Arial, Helvetica;
+  color: #fff;
+}
+
+#signup #submit {  
+  
+}
+
+#log-in #submit:hover,
+#log-in #submit:focus,
+#signup #submit:hover,
+#signup #submit:focus {
+  background-color: #70D145;
+  background-image: linear-gradient(top, #6BD145, #70D145);
+} 
+
+#log-in #submit:active, 
+#signup #submit:active {   
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;   
+}
+
+#log-in #submit::-moz-focus-inner,
+#signup #submit::-moz-focus-inner {
+  border: none;
+}
+
+#log-in label,
+#signup label {
+  float: right;
+  line-height: 30px;
+}
+
+#log-in label input,
+#signup label input {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
